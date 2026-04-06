@@ -5,6 +5,9 @@ on:
   push:
     branches: [ main ]
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   python-ci:
     runs-on: ubuntu-latest
@@ -12,8 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Run Python CI
-        uses: harikamadhugadhiraju/IT-GithubActions/actions/python-ci@v1
+      - uses: <your-username>/IT-GithubActions/actions/python-ci@v1
         with:
           python-version: '3.11'
           requirements-file: requirements.txt
