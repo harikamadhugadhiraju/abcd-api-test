@@ -1,0 +1,21 @@
+name: Backend CI
+
+on:
+  pull_request:
+  push:
+    branches: [ main ]
+
+jobs:
+  python-ci:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run Python CI
+        uses: harikamadhugadhiraju/IT-GithubActions/actions/python-ci@v1
+        with:
+          python-version: '3.11'
+          requirements-file: requirements.txt
+          lint-enabled: 'true'
+          test-enabled: 'true'
